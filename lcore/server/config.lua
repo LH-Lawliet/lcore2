@@ -1,0 +1,1 @@
+config.maxPlayerInLoading = 5

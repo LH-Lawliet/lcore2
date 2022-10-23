@@ -1,0 +1,18 @@
+#Loadbar {
+    position: absolute;
+    width: 100vw;
+    height: 3vh;
+    bottom: 0;
+    left: 0;
+    background-color: var(--VividVioletLO);
+    border-top-left-radius: 3vh;
+    border-top-right-radius: 3vh;
+    overflow: hidden;
+}
+
+#LoadbarChild {
+    width: 50%;
+    height: 100%;
+    background-color: var(--VividViolet);
+    box-shadow: 0 0 1vw 1vw var(--VividViolet);
+}
