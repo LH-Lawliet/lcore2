@@ -26,7 +26,9 @@
         height: 90%;
         overflow-y: scroll;
         overflow-x: hidden;
+
         .character {
+            position: relative;
             width: 100%;
             height: 20vh;
             box-sizing: border-box;
@@ -36,9 +38,41 @@
             border-radius: 3vh;
             padding: 2vh;
             
+            &:hover {
+                background-color: var(--VividVioletULO);
+            }
+
+            &:active {
+                background-color: var(--VividVioletLO);
+            }
+
             .playerHead {
                 height: 16vh;
                 border-radius: 2vh;
+                display: inline-block;
+            }
+
+            span {
+                position: absolute;
+                margin-left: 2vh;
+                font-size: 3vh;
+                line-height: 4vh;
+            }
+
+            .playerFirstname {
+                top: 2vh;
+            }
+
+            .playerLastname {
+                top: 6vh;
+            }
+
+            .playerAge {
+                top: 10vh;
+            }
+
+            .timePlayed {
+                top: 14vh;
             }
         }
     }
