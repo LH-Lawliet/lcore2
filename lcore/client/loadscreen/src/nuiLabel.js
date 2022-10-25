@@ -1,1 +1,1 @@
-../../nuiLabel.js
+../../nuiTools/nuiLabel.js

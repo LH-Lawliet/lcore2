@@ -1,0 +1,38 @@
+:root {
+    --Chocolate : #CC6921;
+    --Tranquil : #E5F1F0;
+    --MidnightExpress : #14111F;
+    --BlueViolet : #AE3CE2;
+    --VividViolet : #79309E;
+    --CeruleanBlue : #2B2EAD;
+    --Kournikova : #FACC47;
+    --SummerSky : #22B4EC;
+
+
+    --ChocolateULO : #CC692110;
+    --TranquilULO : #E5F1F010;
+    --MidnightExpressULO : #14111F10;
+    --BlueVioletULO : #AE3CE210;
+    --VividVioletULO : #79309E10;
+    --CeruleanBlueULO : #2B2EAD10;
+    --KournikovaULO : #FACC4710;
+    --SummerSkyULO : #22B4EC10;
+
+    --ChocolateLO : #CC692120;
+    --TranquilLO : #E5F1F020;
+    --MidnightExpressLO : #14111F20;
+    --BlueVioletLO : #AE3CE220;
+    --VividVioletLO : #79309E20;
+    --CeruleanBlueLO : #2B2EAD20;
+    --KournikovaLO : #FACC4720;
+    --SummerSkyLO : #22B4EC20;
+
+    --ChocolateHO : #CC692150;
+    --TranquilHO : #E5F1F050;
+    --MidnightExpressHO : #14111F50;
+    --BlueVioletHO : #AE3CE250;
+    --VividVioletHO : #79309E50;
+    --CeruleanBlueHO : #2B2EAD50;
+    --KournikovaHO : #FACC4750;
+    --SummerSkyHO : #22B4EC50;
+}
