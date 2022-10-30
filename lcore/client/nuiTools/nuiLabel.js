@@ -1,7 +1,10 @@
 let nuiLabels = {
     "FR":{
         "selectCharacter":"Choisir un personnage",
-        "year":"ans"
+        "year":"ans",
+        "_d":"j", //_d is for days
+        "_h":"h", //_d is for hours
+        "_m":"m", //_d is for minutes
     }
 }
 

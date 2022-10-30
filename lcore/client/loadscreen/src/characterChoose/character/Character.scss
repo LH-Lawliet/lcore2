@@ -1,0 +1,77 @@
+.character {
+    position: relative;
+    width: 100%;
+    height: 20vh;
+    box-sizing: border-box;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border: solid var(--TranquilLO) 1px;
+    border-radius: 3vh;
+    padding: 2vh;
+    
+    &:hover {
+        background-color: var(--VividVioletULO);
+    }
+    
+    &:active {
+        background-color: var(--VividVioletLO);
+    }
+    
+    &.selected {
+        background-color: var(--VividVioletULO);
+    }
+    
+    .imgPart {
+        height: 16vh;
+        border-radius: 2vh;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        
+        .playerHead {
+            height: 100%;
+            width: 13vh;
+        }
+        
+        .over {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--TranquilHO);
+            
+            img {
+                position: absolute;
+                width: 4vh;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+        }
+    }
+    
+    span {
+        position: absolute;
+        margin-left: 2vh;
+        font-size: 3vh;
+        line-height: 4vh;
+    }
+    
+    .playerFirstname {
+        top: 2vh;
+    }
+    
+    .playerLastname {
+        top: 6vh;
+    }
+    
+    .playerAge {
+        top: 10vh;
+    }
+    
+    .timePlayed {
+        top: 14vh;
+    }
+}
