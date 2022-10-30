@@ -36,3 +36,32 @@
     --KournikovaHO : #FACC4750;
     --SummerSkyHO : #22B4EC50;
 }
+
+
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--TranquilHO) var(--MidnightExpressHO);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--MidnightExpressHO);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--TranquilHO);
+    border-radius: 20px;
+    border: 1px solid var(--MidnightExpressULO);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--TranquilLO);
+    border-radius: 20px;
+    border: 3px solid var(--MidnightExpressLO);
+}
