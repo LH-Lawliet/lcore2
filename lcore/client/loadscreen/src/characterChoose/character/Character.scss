@@ -18,7 +18,11 @@
     }
     
     &.selected {
-        background-color: var(--VividVioletULO);
+        background-color: var(--VividVioletLO);
+    }
+    
+    &.selected:hover {
+        background-color: var(--VividVioletHO);
     }
     
     .imgPart {

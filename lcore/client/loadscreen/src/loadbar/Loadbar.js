@@ -3,7 +3,7 @@ import './Loadbar.scss';
 
 
 function Loadbar() {
-    const [advancement, setAdvancement] = useState();
+    const [advancement, setAdvancement] = useState(0);
 
     let onMessage = (event)=>{
         if (event.data.loadFraction) {
@@ -19,7 +19,9 @@ function Loadbar() {
     }, []);
 
     return <div id="Loadbar">
-        <div id="LoadbarChild" style={{width:advancement+"%"}}></div>
+        <div id="LoadbarChild" style={{width:advancement+"%"}}>
+            <span>{advancement.toFixed(1)} %</span>
+        </div>
     </div>
 }
 export default Loadbar;
