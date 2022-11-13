@@ -25,6 +25,12 @@ shared_scripts {
     'shared/debug/debug.lua',
 }
 
+client_scripts {
+    'client/model/model.lua',
+    'client/player/player.lua',
+    'client/spawn/spawn.lua',
+}
+
 server_scripts {
     'server/config.lua',
     'server/labels.lua',
