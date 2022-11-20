@@ -11,7 +11,7 @@ function Player:create(playerData)
     self.ped = nil
     self.asControl = false
     self.frozen = false
-    self.pos = playerData.pos or vector3(0.0,0.0,0.0) -- kinda weird to set it here without send the pos to the game engine
+    self.pos = playerData.pos or vector3(231.356,-870.817,30.4921) -- kinda weird to set it here without send the pos to the game engine
     self.model = playerData.model or "mp_m_freemode_01" -- same
 
     debug:log("Create a player "..self.model.." at pos "..self.pos)
@@ -25,6 +25,7 @@ function Player:create(playerData)
     self:setPos(self.pos)
 
     NetworkResurrectLocalPlayer(self.pos, 0.0001, true, true, false)
+    SetEntityVisible(self.ped, false)
 
     ClearPedTasksImmediately(self:getPed())
 
@@ -32,8 +33,15 @@ function Player:create(playerData)
     self:freeze(false)
 
     DoScreenFadeIn(10)
-    ShutdownLoadingScreen()
-    ShutdownLoadingScreenNui()
+    SetEntityVisible(self.ped, true)
+
+    Citizen.CreateThread(function ()
+        while true do
+            self.pos = GetEntityCoords(self:getPed())
+            self.heading = GetEntityHeading(self:getPed())
+            Wait(100)
+        end
+    end)
 
     return player
 end
@@ -60,10 +68,6 @@ function Player:freeze(state)
     local ped = self:getPed()
 
     if not freeze then
-        if not IsEntityVisible(ped) then
-            SetEntityVisible(ped, true)
-        end
-
         if not IsPedInAnyVehicle(ped) then
             SetEntityCollision(ped, true)
         end
@@ -71,10 +75,6 @@ function Player:freeze(state)
         FreezeEntityPosition(ped, false)
         SetPlayerInvincible(player, false)
     else
-        if IsEntityVisible(ped) then
-            SetEntityVisible(ped, false)
-        end
-
         SetEntityCollision(ped, false)
         FreezeEntityPosition(ped, true)
         SetPlayerInvincible(player, true)
@@ -102,6 +102,11 @@ end
 function Player:setPos(coords)
     self.pos=coords
     SetEntityCoordsNoOffset(self:getPed(), coords, false, false, false, true)
+end
+
+function Player:setRotHeading(rot)
+    SetEntityRotation(self:getPed(), rot,0.0,0.0,0,false)
+    SetEntityHeading(self:getPed(), rot)
 end
 
 

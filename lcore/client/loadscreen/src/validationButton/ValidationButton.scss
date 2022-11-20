@@ -1,0 +1,20 @@
+#validationButton {
+    position: absolute;
+    width: 20vw;
+    height: 5vh;
+    bottom: 0;
+    left: 40vw;
+    background-color: var(--VividVioletLO);
+    border-top-left-radius: 3vh;
+    border-top-right-radius: 3vh;
+    overflow: hidden;
+    
+    font-family: font0;
+    font-size: 3vh;
+    color: var(--Tranquil);
+    border-color: var(--BlueViolet);
+    
+    &:hover {
+        background-color: var(--BlueVioletHO);
+    }
+}

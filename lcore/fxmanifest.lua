@@ -28,10 +28,15 @@ shared_scripts {
 client_scripts {
     'client/model/model.lua',
     'client/player/player.lua',
+    'client/player/creator.lua',
     'client/spawn/spawn.lua',
+    'client/loadscreen/client.lua',
+    'client/vehicle/vehicle.lua',
+    'client/command/debug.lua'
 }
 
 server_scripts {
+    'server/socket/socket.js',
     'server/config.lua',
     'server/labels.lua',
     'server/database/database.js',

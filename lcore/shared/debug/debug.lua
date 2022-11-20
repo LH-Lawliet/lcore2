@@ -37,7 +37,7 @@ function debug:printTable(table, indentation)
     if type(table) == "table" then
         indentation = indentation or 0
         for k, v in pairs(table) do
-            formatting = string.rep("  ", indentation) .. k .. ": "
+            formatting = string.rep("  ", indentation) .. k .. " ("..type(k).."): "
             if type(v) == "table" then
                 if indentation > 10 then
                     debug:print(formatting.."table too far... (probably infinite loop due to class)")

@@ -2,17 +2,72 @@ Players = {}
 
 Player = {}
 
-function Player:new(source)
+
+-- handle restart
+Citizen.CreateThread(function ()
+    local num = GetNumPlayerIndices()
+    for i = 0, num - 1 do
+        print("num : ",num)
+        TriggerClientEvent("lcore:spawn",GetPlayerFromIndex(i), {})
+    end
+end)
+
+
+RegisterServerEvent("lcore:heyIsThatARestart")
+AddEventHandler("lcore:heyIsThatARestart", function ()
+    local source = source..""
+    if not Players[source] then
+        Player:new({}, source)
+        spawnPlayer(source, {})
+    end
+end)
+
+
+-- called by the socket handler
+function spawnPlayer(src, playerData)
+    debug:print("spawnPlayer function")
+    ply = Players[src]
+    if not ply then
+        debug:error("No player with source "..src.." impossible to shutdown loadscreen of him")
+    else
+        ply:spawn(playerData)
+    end
+end
+exports("spawnPlayer", spawnPlayer);
+
+
+AddEventHandler("playerJoining", function (oldID)
+    local source = source..""
+    oldID = oldID..""
+
+    debug:print(type(source))
+
+    debug:print("player change source from "..oldID.." to "..source)
+    ply = Players[oldID]
+    if ply then
+        Players[source] = ply
+        TriggerClientEvent("lcore:setSource", source, source)
+    else
+        debug:error("There were no player with the src "..oldID..", probably disonnected during loadscreen")
+        Players[oldID] = nil
+    end
+end)
+
+function Player:new(ply, source)
     debug:log("new ply")
-    local ply = {}
     setmetatable(ply, self)
     self.__index = self
-    self.source = source
+    self.source = tonumber(source)
     self.identifiers = self:GetIdentifiers()
 
+    Players[source] = self
+
     self:print()
-    Players[source] = ply
-    return ply
+    return self
+end
+
+function Player:spawn(data)
+    TriggerClientEvent("lcore:spawn", self.source, data)
 end
 
 function Player:GetIdentifiers()

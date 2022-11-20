@@ -1,0 +1,25 @@
+Citizen.CreateThread(function ()
+    debug:print("Init scripts ...")
+    SendLoadingScreenMessage(json.encode({ shutdownPossible=true, setSource=GetPlayerServerId(PlayerId()).."" }))
+end)
+
+
+-- should'nt be necessary since the final source is created when entering in loadscreen
+RegisterNetEvent("lcore:setSource")
+AddEventHandler("lcore:setSource", function(src)
+    debug:print("My Source is now : ".. src)
+    SendLoadingScreenMessage(json.encode({ setSource=src }))
+end)
+
+RegisterNetEvent("lcore:spawn")
+AddEventHandler("lcore:spawn", function(data)
+    debug:print("lcore:spawn called")
+    spawnPlayer(data)
+    SendLoadingScreenMessage(json.encode({ playerSpawned=true }))
+    Wait(2500)
+    ShutdownLoadingScreen()
+    ShutdownLoadingScreenNui()
+    DoScreenFadeOut(10)
+    Wait(100)
+    DoScreenFadeIn(3000)
+end)

@@ -1,8 +1,8 @@
 AddEventHandler("playerConnecting", function(playerName, setKickReason, deferrals)
-    local source = source
+    local source = source..""
 
     deferrals.defer()
-    local ply = Player:new(source)
+    local ply = Player:new({}, source)
 
     deferrals.handover({playerName=playerName})
 
